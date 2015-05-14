@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     fs = require('fs'),
     babel = require('babel'),
     istanbul = require('istanbul'),
-    mocha = require('gulp-mocha'),
+    jasmine = require('gulp-jasmine'),
     parseVLQ = require('parse-base64vlq-mappings'),
     sourceStore = istanbul.Store.create('memory'),
 
@@ -131,7 +131,7 @@ module.exports.createTask = function (options) {
             Collector = istanbul.Collector;
 
         return gulp.src(options.src)
-        .pipe(mocha(options.mocha))
+        .pipe(jasmine(options.jasmine))
         .on('end', function () {
             var collector = new Collector();
 
